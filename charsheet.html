@@ -59,8 +59,8 @@
   background-repeat: no-repeat;
 }
 
-.lel {
-  background-image: url('lel.svg');
+.prof {
+  background-image: url('prof.svg');
 }
 
 .shield {
@@ -87,6 +87,28 @@
   background-image: url('initiative.svg');
 }
 
+.plus {
+  background-image: url('plus.svg');
+}
+
+.money {
+  width: 20%;
+  display: flex;
+  padding-right: 1em;
+  text-align: bottom;
+}
+
+.corner {
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-right: 4em;
+}
+
+.coins {
+  background-image: url('coins.svg');
+}
+
 .open {
   background-repeat: no-repeat;
   background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
@@ -103,7 +125,7 @@
 .open-mini {
   background-repeat: no-repeat;
   background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
-  background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
+  background-position-x: 0%, 100%, 0%, 100%;
   background-position-y: 1.1em, 1.1em, 100%, 100%;
   background-size: 7.5%;
 }
@@ -178,10 +200,10 @@
 <!-- Page 1 -->
 <div class="page">
   <div class="panel even">
-    <div style="width: 100%; height: 10%;">
+    <div style="width: 100%; height: 12%;">
       <div class="top-row">
         <div style="width: 40%;"><div class="row-item">Name</div></div>
-        <div style="width: 35%;"><div class="row-item">Class and Level</div></div>
+        <div style="width: 35%;"><div class="row-item">Class/Level</div></div>
         <div style="width: 25%;"><div class="row-item">Player</div></div>
       </div>
       <div class="top-row">
@@ -192,7 +214,7 @@
       </div>
     </div>
 
-    <div style="width: 100%; height: 90%; display: flex;">
+    <div style="width: 100%; height: 88%; display: flex;">
       <div style="width: 40%; height: 100%;">
 
         <div style="height: 14%; width: 100%;" class="stat">
@@ -276,7 +298,7 @@
       <div style="width: 60%; height: 100%;">
         <div style="height: 20%;">
           <div style="height: 50%; display: flex;">
-            <div class="box lel" style="width: 25%;">Prof Bonus</div>
+            <div class="box prof" style="width: 25%;">Prof Bonus</div>
             <div class="box initiative" style="width: 25%;">Initiative</div>
             <div class="box boot" style="width: 25%;">Speed</div>
             <div class="box shield" style="width: 25%;">Armor Class</div>
@@ -285,7 +307,7 @@
             <div style="width: 25%;" class="box heart">Current HP</div>
             <div style="width: 25%;" class="box heart-dashed">Temp HP</div>
             <div style="width: 25%;" class="box heart-swole">Max HP</div>
-            <div style="width: 25%;" class="box lel">Hit Dice</div>
+            <div style="width: 25%;" class="box plus">Hit Dice</div>
           </div>
         </div>
 
@@ -328,18 +350,18 @@
       </div>
     </div>
 
-    <div style="width: 100%; height: calc(20% - 1em); padding-bottom: 1em;">
-      <div style="height: 10%; padding-top: 1em;">Treasure</div>
-      <div style="height: 25%; display: flex;">
-        <div style="width: 20%;" class="box lel">CP</div>
-        <div style="width: 20%;" class="box lel">SP</div>
-        <div style="width: 20%;" class="box lel">EP</div>
-        <div style="width: 20%;" class="box lel">GP</div>
-        <div style="width: 20%;" class="box lel">PP</div>
+    <div style="width: 100%; height: 5%;">
+      <div style="height: 2em; display: flex; padding-top: 1em;">
+        <div class="money"><div class="corner coins">CP</div></div>
+        <div class="money"><div class="corner coins">SP</div></div>
+        <div class="money"><div class="corner coins">EP</div></div>
+        <div class="money"><div class="corner coins">GP</div></div>
+        <div class="money" style="padding-right: 0em;"><div class="corner coins">PP</div></div>
       </div>
-      <div style="width: 100%; height: 65%;" class="open-mini">
-        <div>Valuables</div>
-      </div>
+    </div>
+
+    <div style="width: 100%; height: 15%;" class="open-mini">
+      <div >Valuables</div>
     </div>
 
     <div style="width: 100%; height: 35%;" class="open-mini">
