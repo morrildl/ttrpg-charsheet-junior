@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+
   <style type="text/css">
 @page {
   size: letter landscape;
@@ -13,8 +17,28 @@
   height: 8.5in;
   margin: 0px;
   padding: 0px;
+
+  font-family: "Smythe", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
 }
 
+/* The page margins are set for 0.17" on each edge, because this is what my particular printer
+ * supports; I assume this is typical for home printers. 
+ *
+ * However, on the left edge of each page, and in between pages, we need to leave space for the
+ * mushroom-shaped discbound hole punches. These intrude 0.45" into the page. It's unclear whether
+ * this is a standard defined anywhere, since there are multiple OEM variants that only agree on
+ * width of slot and not so on depth of the "mushroom cap". But 0.45" seems to work well in
+ * practice.
+ *
+ * Once you do the math for the margins, you are left with a 4.88" x 8.16" content space.
+ *
+ * This could be converted to e.g. A5 panels printed on A4, or to a printer with different margins,
+ * by just updating these constants. The content within the panels should reflow, as the blocks are
+ * all sized proportionally.
+ */
 .panel {
   width:       4.88in;
   height:      8.16in;
@@ -28,6 +52,125 @@
 .odd {
   margin-right: 0.45in;
 }
+
+.box {
+  background-size: calc(95%) calc(100% - 1.1em);
+  background-position-y: 1.1em;
+  background-repeat: no-repeat;
+}
+
+.lel {
+  background-image: url('lel.svg');
+}
+
+.shield {
+  background-image: url('shield.svg');
+}
+
+.boot {
+  background-image: url('boot.svg');
+}
+
+.heart {
+  background-image: url('heart.svg');
+}
+
+.heart-dashed {
+  background-image: url('heart-dashed.svg');
+}
+
+.heart-swole {
+  background-image: url('heart-swole.svg');
+}
+
+.initiative {
+  background-image: url('initiative.svg');
+}
+
+.open {
+  background-repeat: no-repeat;
+  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
+  background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
+  background-position-y: 1.1em, 1.1em, 100%, 100%;
+  background-size: 12.5%;
+}
+
+.open div:first-child {
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+.open-mini {
+  background-repeat: no-repeat;
+  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
+  background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
+  background-position-y: 1.1em, 1.1em, 100%, 100%;
+  background-size: 7.5%;
+}
+
+.open-mini div:first-child {
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+.stat {
+  display: flex;
+  padding-top: 0.3em;
+  /*
+  background-repeat: no-repeat;
+  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
+  background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
+  background-position-y: 2.5%, 2.5%, 97.5%, 97.5%;
+  background-size: 12.5%;
+  border-bottom: 1px solid black;
+  */
+}
+
+.stat .statname {
+  height: 1.2em;
+}
+
+.stat .statbox {
+  height: 100%;
+  width: 100%;
+  background-image: url('statbox.svg');
+  background-size: 90%;
+  background-position-x: center;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.stat .skill-list {
+  padding-left: 1em;
+}
+
+.disc {
+  background-image: url('disc.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  width: 0.65em;
+}
+
+.skill {
+  width: 1.5em;
+  border-bottom: 2px solid black;
+  margin-right: 0.25em;
+}
+
+.top-row {
+  height: 50%;
+  display: flex;
+  text-align: left;
+}
+
+.top-row .row-item {
+  margin-right: 0.5em;
+  border-bottom: 1px solid black;
+  height: calc(100% - 0.5em);
+}
   </style>
 </head>
 <body style="margin: 0in; padding: 0in;">
@@ -36,97 +179,125 @@
 <div class="page">
   <div class="panel even">
     <div style="width: 100%; height: 10%;">
-      <div style="height: 50%; display: flex;">
-        <div style="width: 34%; background-color: #ccffcc;">Name</div>
-        <div style="width: 33%; background-color: #ccccff;">Class & Level</div>
-        <div style="width: 33%; background-color: #cfcccf;">Player</div>
+      <div class="top-row">
+        <div style="width: 40%;"><div class="row-item">Name</div></div>
+        <div style="width: 35%;"><div class="row-item">Class and Level</div></div>
+        <div style="width: 25%;"><div class="row-item">Player</div></div>
       </div>
-      <div style="height: 50%; display: flex;">
-        <div style="width: 30%; background-color: #ffaaaa;">Species</div>
-        <div style="width: 30%; background-color: #aaffaa;">Background</div>
-        <div style="width: 25%; background-color: #aaaaff;">XP</div>
-        <div style="width: 15%; background-color: #ffaaaa;">Inspiration</div>
+      <div class="top-row">
+        <div style="width: 30%;"><div class="row-item">Species</div></div>
+        <div style="width: 30%;"><div class="row-item">Background</div></div>
+        <div style="width: 25%;"><div class="row-item">XP</div></div>
+        <div style="width: 15%;"><div class="row-item">Inspiration</div></div>
       </div>
     </div>
 
     <div style="width: 100%; height: 90%; display: flex;">
-      <div style="width: 40%; height: 100%; background-color: #ccffcc;">
-        <div style="height: 17%; width: 100%; background-color: #ffcccc; display: flex;">
-          <div style="width: 25%; height: 100%;">STR</div>
-          <div style="width: 75%; height: 100%; background-color: #ffdddd;"><ul>
-            <li>Saving Throws</li>
-            <li>Athletics</li>
-          </ul></div>
+      <div style="width: 40%; height: 100%;">
+
+        <div style="height: 14%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">STR</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Athletics</div>
+          </div>
         </div>
-        <div style="height: 16%; width: 100%; background-color: #ccffcc; display: flex;">
-          <div style="width: 25%; height: 100%;">DEX</div>
-          <div style="width: 75%; height: 100%; background-color: #ddffdd;"><ul>
-            <li>Saving Throws</li>
-            <li>Acrobatics</li>
-            <li>Sleight of Hand</li>
-            <li>Stealth</li>
-          </ul></div>
+
+        <div style="height: 15%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">DEX</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Acrobatics</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Sleight of Hand</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Stealth</div>
+          </div>
         </div>
-        <div style="height: 17%; width: 100%; background-color: #ccccff; display: flex;">
-          <div style="width: 25%; height: 100%;">CON</div>
-          <div style="width: 75%; height: 100%; background-color: #ddddff;"><ul>
-            <li>Saving Throws</li>
-          </ul></div>
+
+        <div style="height: 14%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">CON</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+          </div>
         </div>
-        <div style="height: 16%; width: 100%; background-color: #ffcccc; display: flex;">
-          <div style="width: 25%; height: 100%;">INT</div>
-          <div style="width: 75%; height: 100%; background-color: #ffdddd;"><ul>
-            <li>Saving Throws</li>
-            <li>Arcana</li>
-            <li>History</li>
-            <li>Investigation</li>
-            <li>Nature</li>
-            <li>Religion</li>
-          </ul></div>
+
+        <div style="height: 20%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">INT</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Arcana</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>History</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Investigation</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Nature</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Religion</div>
+          </div>
         </div>
-        <div style="height: 17%; width: 100%; background-color: #ccffcc; display: flex;">
-          <div style="width: 25%; height: 100%;">WIS</div>
-          <div style="width: 75%; height: 100%; background-color: #ddffdd;"><ul>
-            <li>Saving Throws</li>
-            <li>Animal Handling</li>
-            <li>Insight</li>
-            <li>Medicine</li>
-            <li>Perception</li>
-            <li>Survival</li>
-          </ul></div>
+
+        <div style="height: 19%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">WIS</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Animal Handling</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Insight</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Medicine</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Perception</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Survival</div>
+          </div>
         </div>
-        <div style="height: 17%; width: 100%; background-color: #ccccff; display: flex;">
-          <div style="width: 25%; height: 100%;">CHA</div>
-          <div style="width: 75%; height: 100%; background-color: #ddddff;"><ul>
-            <li>Saving Throws</li>
-            <li>Deception</li>
-            <li>Intimidation</li>
-            <li>Performance</li>
-            <li>Persuasion</li>
-          </ul></div>
+        <div style="height: 17%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">CHA</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;" class="skill-list">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Deception</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Intimidation</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Performance</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Persuasion</div>
+          </div>
         </div>
       </div>
 
       <div style="width: 60%; height: 100%;">
         <div style="height: 20%;">
           <div style="height: 50%; display: flex;">
-            <div style="width: 25%; background-color: #ffcccc;">Prof Bonus</div>
-            <div style="width: 25%; background-color: #ccffcc;">Initiative</div>
-            <div style="width: 25%; background-color: #ccccff;">Speed</div>
-            <div style="width: 25%; background-color: #ffcccc;">Armor Class</div>
+            <div class="box lel" style="width: 25%;">Prof Bonus</div>
+            <div class="box initiative" style="width: 25%;">Initiative</div>
+            <div class="box boot" style="width: 25%;">Speed</div>
+            <div class="box shield" style="width: 25%;">Armor Class</div>
           </div>
           <div style="height: 50%; display: flex;">
-            <div style="width: 40%; background-color: #ffcccc;">Hit Points</div>
-            <div style="width: 35%; background-color: #ccffcc;">Temp HP</div>
-            <div style="width: 25%; background-color: #ccccff;">Hit Dice</div>
+            <div style="width: 25%;" class="box heart">Current HP</div>
+            <div style="width: 25%;" class="box heart-dashed">Temp HP</div>
+            <div style="width: 25%;" class="box heart-swole">Max HP</div>
+            <div style="width: 25%;" class="box lel">Hit Dice</div>
           </div>
         </div>
 
-        <div style="height: 20%; background-color: #ccffcc;">
-          Attacks & Spellcasting
+        <div style="height: 25%;" class="open">
+          <div>Attacks and Spellcasting</div>
         </div>
-        <div style="height: 15%; background-color: #ccccff">Other Proficiencies & Languages</div>
-        <div style="height: 45%; background-color: #ffcccc;">Features & Traits</div>
+        <div style="height: 20%;" class="open">
+          <div>Other Proficiencies and Languages</div>
+        </div>
+        <div style="height: 35%;" class="open">
+          <div>Features and Traits</div>
+        </div>
       </div>
     </div>
   </div>
@@ -138,39 +309,46 @@
 
 <!-- Page 2 -->
 <div class="page">
+
   <div class="panel odd">
     <div style="border: 1px solid red; height: 100%;">Content</div>
   </div>
+
   <div class="panel odd">
-
-    <div style="height: 5%; display: flex;">
-      <div style="width: 33%; background-color: #ffcccc;">Age</div>
-      <div style="width: 34%; background-color: #ccffcc;">Height</div>
-      <div style="width: 33%; background-color: #ccccff;">Weight</div>
-    </div>
-    <div style="height: 5%; display: flex;">
-      <div style="width: 33%; background-color: #ccffcc;">Eyes</div>
-      <div style="width: 34%; background-color: #ccccff;">Skin</div>
-      <div style="width: 33%; background-color: #ffcccc;">Hair</div>
-    </div>
-
-    <div style="height: 20%; background-color: #ccffff">
-      <div style="height: 10%;">Treasure</div>
-      <div style="height: 24%; display: flex;">
-        <div style="width: 20%; background-color: #ffcccc; margin-left: 0.5em;">CP</div>
-        <div style="width: 20%; background-color: #ccffcc">SP</div>
-        <div style="width: 20%; background-color: #ccccff">EP</div>
-        <div style="width: 20%; background-color: #ffcccc">GP</div>
-        <div style="width: 20%; background-color: #ccffcc; margin-right: 0.5em;">PP</div>
+    <div style="width: 100%; height: 10%;">
+      <div class="top-row">
+        <div style="width: 33%;" class="row-item">Age</div>
+        <div style="width: 34%;" class="row-item">Height</div>
+        <div style="width: 33%;" class="row-item">Weight</div>
       </div>
-      <div style="height: 66%; display: flex;">
-        <div style="background-color: #ffccff; width: 100%; margin-left: 0.5em; margin-right: 0.5em;">Valuables</div>
+      <div class="top-row">
+        <div style="width: 33%;" class="row-item">Eyes</div>
+        <div style="width: 34%;" class="row-item">Skin</div>
+        <div style="width: 33%;" class="row-item">Hair</div>
       </div>
     </div>
 
-    <div style="height: 35%; background-color: #ffffcc">Equipment</div>
-    <div style="height: 35%; background-color: #ffccff">Additional Features & Traits</div>
+    <div style="width: 100%; height: calc(20% - 1em); padding-bottom: 1em;">
+      <div style="height: 10%; padding-top: 1em;">Treasure</div>
+      <div style="height: 25%; display: flex;">
+        <div style="width: 20%;" class="box lel">CP</div>
+        <div style="width: 20%;" class="box lel">SP</div>
+        <div style="width: 20%;" class="box lel">EP</div>
+        <div style="width: 20%;" class="box lel">GP</div>
+        <div style="width: 20%;" class="box lel">PP</div>
+      </div>
+      <div style="width: 100%; height: 65%;" class="open-mini">
+        <div>Valuables</div>
+      </div>
+    </div>
 
+    <div style="width: 100%; height: 35%;" class="open-mini">
+      <div>Equipment</div>
+    </div>
+
+    <div style="width: 100%; height: 35%;" class="open-mini">
+      <div>Additional Features and Traits</div>
+    </div>
   </div>
 
 </div>

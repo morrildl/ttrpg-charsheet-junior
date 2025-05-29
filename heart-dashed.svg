@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="94.68512mm"
+   height="94.319572mm"
+   viewBox="0 0 94.68512 94.319572"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="heart-dashed.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.78216891"
+     inkscape:cx="167.48301"
+     inkscape:cy="283.82616"
+     inkscape:window-width="1920"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="106.2164,74.857906"
+       end_point="106.2164,158.30979"
+       center_point="106.2164,116.58385"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.396048,-73.821565)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.99998925;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5.99996781,5.99996781;stroke-dashoffset:1.59999144"
+       d="M 106.2164,85.582002 C 82.626191,56.395793 49.690332,92.629783 65.506815,124.53798 c 9.179571,18.51888 40.709585,33.77181 40.709585,33.77181 m 0,-72.727788 c 23.59021,-29.186209 56.52607,7.047781 40.70958,38.955978 -9.17957,18.51888 -40.70958,33.77181 -40.70958,33.77181"
+       id="path2"
+       sodipodi:nodetypes="csc"
+       inkscape:path-effect="#path-effect2"
+       inkscape:original-d="M 106.2164,85.582002 C 82.626191,56.395793 49.690332,92.629783 65.506815,124.53798 c 9.179571,18.51888 40.709585,33.77181 40.709585,33.77181"
+       transform="matrix(1.0324291,0,0,1.1037741,-1.9222964,-7.7008844)" />
+  </g>
+</svg>
