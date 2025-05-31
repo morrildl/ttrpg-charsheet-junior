@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+  <!-- © 2025, Dan Morrill. This work is licensed under the terms of CC-BY 4.0. -->
 <html>
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,12 +27,12 @@
 }
 
 /* The page margins are set for 0.17" on each edge, because this is what my particular printer
- * supports; I assume this is typical for home printers. 
+ * supports; I assume this is typical for home printers, but YMMV.
  *
  * However, on the left edge of each page, and in between pages, we need to leave space for the
  * mushroom-shaped discbound hole punches. These intrude 0.45" into the page. It's unclear whether
  * this is a standard defined anywhere, since there are multiple OEM variants that only agree on
- * width of slot and not so on depth of the "mushroom cap". But 0.45" seems to work well in
+ * width of slot and not so much on depth of the "mushroom cap". But 0.45" seems to work well in
  * practice.
  *
  * Once you do the math for the margins, you are left with a 4.88" x 8.16" content space.
@@ -61,35 +62,35 @@
 }
 
 .prof {
-  background-image: url('prof.svg');
+  background-image: url('assets/prof.svg');
 }
 
 .shield {
-  background-image: url('shield.svg');
+  background-image: url('assets/shield.svg');
 }
 
 .boot {
-  background-image: url('boot.svg');
+  background-image: url('assets/boot.svg');
 }
 
 .heart {
-  background-image: url('heart.svg');
+  background-image: url('assets/heart.svg');
 }
 
 .heart-dashed {
-  background-image: url('heart-dashed.svg');
+  background-image: url('assets/heart-dashed.svg');
 }
 
 .heart-swole {
-  background-image: url('heart-swole.svg');
+  background-image: url('assets/heart-swole.svg');
 }
 
 .initiative {
-  background-image: url('initiative.svg');
+  background-image: url('assets/initiative.svg');
 }
 
 .plus {
-  background-image: url('plus.svg');
+  background-image: url('assets/plus.svg');
 }
 
 .money {
@@ -107,12 +108,12 @@
 }
 
 .coins {
-  background-image: url('coins.svg');
+  background-image: url('assets/coins.svg');
 }
 
 .open {
   background-repeat: no-repeat;
-  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
+  background-image: url('assets/border-tl.svg'), url('assets/border-tr.svg'), url('assets/border-bl.svg'), url('assets/border-br.svg');
   background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
   background-position-y: 1.1em, 1.1em, 100%, 100%;
   background-size: 12.5%;
@@ -125,7 +126,7 @@
 
 .open-mini {
   background-repeat: no-repeat;
-  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
+  background-image: url('assets/border-tl.svg'), url('assets/border-tr.svg'), url('assets/border-bl.svg'), url('assets/border-br.svg');
   background-position-x: 0%, 100%, 0%, 100%;
   background-position-y: 1.1em, 1.1em, 100%, 100%;
   background-size: 7.5%;
@@ -139,14 +140,6 @@
 .stat {
   display: flex;
   padding-top: 0.3em;
-  /*
-  background-repeat: no-repeat;
-  background-image: url('border-tl.svg'), url('border-tr.svg'), url('border-bl.svg'), url('border-br.svg');
-  background-position-x: 2.5%, 97.5%, 2.5%, 97.5%;
-  background-position-y: 2.5%, 2.5%, 97.5%, 97.5%;
-  background-size: 12.5%;
-  border-bottom: 1px solid black;
-  */
 }
 
 .stat .statname {
@@ -156,7 +149,7 @@
 .stat .statbox {
   height: 100%;
   width: 100%;
-  background-image: url('statbox.svg');
+  background-image: url('assets/statbox.svg');
   background-size: 90%;
   background-position-x: center;
   background-position-y: top;
@@ -164,7 +157,7 @@
 }
 
 .disc {
-  background-image: url('disc.svg');
+  background-image: url('assets/disc.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -194,9 +187,10 @@
 </head>
 <body style="margin: 0in; padding: 0in;">
 
-<!-- Page 1 -->
+<!-- US-Letter page 1 as far as the printer is concerned: front side of US-Letter "parent" sheet -->
 <div class="page">
-  <div class="panel even">
+
+  <div class="panel even"><!-- Half-Letter Sheet 1, Page 1: This is the front side of the first of the 2 character sheets -->
     <div style="width: 100%; height: 12%;">
       <div class="top-row">
         <div style="width: 40%;"><div class="row-item">Name</div></div>
@@ -321,19 +315,175 @@
     </div>
   </div>
 
-  <div class="panel even">
-    <div style="border: 1px solid red; height: 100%;">Content</div>
-  </div>
-</div> <!-- end page 1 -->
+  <div class="panel even"><!-- Half-Letter Sheet 2, Page 1: This is the front side of the **second** of the 2 character sheets -->
+    <div style="width: 100%; height: 12%;">
+      <div class="top-row">
+        <div style="width: 40%;"><div class="row-item">Name</div></div>
+        <div style="width: 35%;"><div class="row-item">Class/Level</div></div>
+        <div style="width: 25%;"><div class="row-item">Player</div></div>
+      </div>
+      <div class="top-row">
+        <div style="width: 30%;"><div class="row-item">Species</div></div>
+        <div style="width: 30%;"><div class="row-item">Background</div></div>
+        <div style="width: 25%;"><div class="row-item">XP</div></div>
+        <div style="width: 15%;"><div class="row-item">Inspiration</div></div>
+      </div>
+    </div>
 
-<!-- Page 2 -->
+    <div style="width: 100%; height: 88%; display: flex;">
+      <div style="width: 40%; height: 100%;">
+
+        <div style="height: 14%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">STR</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Athletics</div>
+          </div>
+        </div>
+
+        <div style="height: 15%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">DEX</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Acrobatics</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Sleight of Hand</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Stealth</div>
+          </div>
+        </div>
+
+        <div style="height: 14%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">CON</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+          </div>
+        </div>
+
+        <div style="height: 20%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">INT</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Arcana</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>History</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Investigation</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Nature</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Religion</div>
+          </div>
+        </div>
+
+        <div style="height: 19%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">WIS</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Animal Handling</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Insight</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Medicine</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Perception</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Survival</div>
+          </div>
+        </div>
+        <div style="height: 17%; width: 100%;" class="stat">
+          <div style="width: 30%; height: 100%;">
+            <div class="statname">CHA</div>
+            <div class="statbox"></div>
+          </div>
+          <div style="width: 70%; height: 100%;">
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Saving Throws</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Deception</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Intimidation</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Performance</div>
+            <div style="display: flex;"><div class="disc"></div><div class="skill"></div>Persuasion</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 60%; height: 100%;">
+        <div style="height: 20%;">
+          <div style="height: 50%; display: flex;">
+            <div class="box prof" style="width: 25%;">Prof Bonus</div>
+            <div class="box initiative" style="width: 25%;">Initiative</div>
+            <div class="box boot" style="width: 25%;">Speed</div>
+            <div class="box shield" style="width: 25%;">Armor Class</div>
+          </div>
+          <div style="height: 50%; display: flex;">
+            <div style="width: 25%;" class="box heart">Current HP</div>
+            <div style="width: 25%;" class="box heart-dashed">Temp HP</div>
+            <div style="width: 25%;" class="box heart-swole">Max HP</div>
+            <div style="width: 25%;" class="box plus">Hit Dice</div>
+          </div>
+        </div>
+
+        <div style="height: 25%;" class="open">
+          <div>Attacks & Spellcasting</div>
+        </div>
+        <div style="height: 20%;" class="open">
+          <div>Other Proficiencies & Languages</div>
+        </div>
+        <div style="height: 35%;" class="open">
+          <div>Features & Traits</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- End of US-Letter parent page 1 -->
+
+
+<!-- US-Letter page 2 as far as the document is concerned; intended to be printed double-sided, so
+     back side of the first US-Letter sheet as far as the printer is concerned -->
 <div class="page">
 
-  <div class="panel odd">
-    <div style="border: 1px solid red; height: 100%;">Content</div>
+  <div class="panel odd"><!-- Half-Letter Sheet 2, Page 2: This is the back side of the **second** of the 2 character sheets -->
+    <div style="width: 100%; height: 10%;">
+      <div class="top-row">
+        <div style="width: 33%;" class="row-item">Age</div>
+        <div style="width: 34%;" class="row-item">Height</div>
+        <div style="width: 33%;" class="row-item">Weight</div>
+      </div>
+      <div class="top-row">
+        <div style="width: 33%;" class="row-item">Eyes</div>
+        <div style="width: 34%;" class="row-item">Skin</div>
+        <div style="width: 33%;" class="row-item">Hair</div>
+      </div>
+    </div>
+
+    <div style="width: 100%; height: 5%;">
+      <div style="height: 2em; display: flex; padding-top: 1em;">
+        <div class="money"><div class="corner coins">CP</div></div>
+        <div class="money"><div class="corner coins">SP</div></div>
+        <div class="money"><div class="corner coins">EP</div></div>
+        <div class="money"><div class="corner coins">GP</div></div>
+        <div class="money" style="padding-right: 0em;"><div class="corner coins">PP</div></div>
+      </div>
+    </div>
+
+    <div style="width: 100%; height: 15%;" class="open-mini">
+      <div >Valuables</div>
+    </div>
+
+    <div style="width: 100%; height: 35%;" class="open-mini">
+      <div>Equipment</div>
+    </div>
+
+    <div style="width: 100%; height: 35%;" class="open-mini">
+      <div>Additional Features & Traits</div>
+    </div>
   </div>
 
-  <div class="panel odd">
+  <div class="panel odd"><!-- Half-Letter Sheet 1, Page 2: This is the back side of the **first** of the 2 character sheets -->
     <div style="width: 100%; height: 10%;">
       <div class="top-row">
         <div style="width: 33%;" class="row-item">Age</div>
