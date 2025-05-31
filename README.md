@@ -20,5 +20,8 @@ To use:
 2. Open the file in a browser, via a `file:///` URL
 3. Print the HTML page (ctrl-P)
 
+Alternatively, if you don't want to make any tweaks, just download and print
+[charsheet.pdf](charsheet.pdf).
+
 
 The contents of this repository are all licensed under the terms of Creative Commons CC-BY 4.0.
