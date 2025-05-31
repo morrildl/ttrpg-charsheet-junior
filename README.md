@@ -2,8 +2,9 @@ A US Half-Letter (5.5" x 8.5") D&D 5e character sheet, suitable for use in a dis
 
 You should not use this. You should buy something like [Cantrips Media character
 sheets](https://cantripsmedia.com/products/character-sheets-for-d-d-5e-player-size-notebooks?variant=44951519854819)
-which inspired this project. I did my version because I pedantically wanted a double-sided character
-sheet, where Cantrips' are laid out side-by-side. Also, I kinda did it just to see if I could.
+which inspired this project. I did my (considerably uglier, amateurish) version because I
+pedantically wanted a double-sided character sheet, where Cantrips' are laid out side-by-side. Also,
+I kinda did it just to see if I could.
 
 The layout in [charsheet.html](charsheet.html) is for a single US Letter (8.5" x 11") sheet. Once
 printed, it yields two copies of the character sheet after the US Letter "parent" page is cut in
