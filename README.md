@@ -32,3 +32,5 @@ There are two sub-projects: [one for D&D 5e](dnd-5e/README.md) and [another for
 Daggerheart](daggerheart/README.md).
 
 Click through to the one you're interested in (or both, I'm not the boss of you.)
+
+The contents of this repository and linked 3D models are all licensed under the terms of Creative Commons CC-BY 4.0.

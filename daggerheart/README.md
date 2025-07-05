@@ -83,3 +83,5 @@ The overall idea here is:
    stat-tracking card, and some paper for note-taking
 
 ![Just so](usage.jpg)
+
+The contents of this repository and the models above are all licensed under the terms of Creative Commons CC-BY 4.0.
