@@ -28,8 +28,8 @@ notebook](https://en.wikipedia.org/wiki/Disc-binding) I use for taking notes whi
 
 ## Contents
 
-There are two sub-projects: [one for D&D 5e](dnd-5e/README.md) and [another for
-Daggerheart](daggerheart/README.md).
+There are two sub-projects: [one for D&D 5e](dnd-5e/) and [another for
+Daggerheart](daggerheart/).
 
 Click through to the one you're interested in (or both, I'm not the boss of you.)
 
