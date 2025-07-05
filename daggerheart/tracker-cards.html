@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+  <!-- © 2025, Dan Morrill. This work is licensed under the terms of CC-BY 4.0. -->
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+@page {
+  size: letter landscape;
+  margin: 0in;
+  padding: 0in;
+}
+
+.page {
+  height: 8.5in;
+  margin: 0px;
+  padding-left: 0.25in;
+  padding-top: 0.5in;
+
+  font-family: "Cinzel", system-ui;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.0em;
+}
+
+.card {
+  height: 2.5in;
+  width: 3.5in;
+  margin: 0px;
+
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.topcard {
+  border-top: 1px solid black;
+}
+
+.leftcard {
+  border-left: 1px solid black;
+}
+
+.pip {
+  background-image: url('assets/pip.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 1.1em;
+  aspect-ratio: 1;
+}
+
+.outline {
+  background-image: url('assets/pip-outline.svg');
+}
+
+.piptable {
+  text-align: right;
+  font-size: 1.0em;
+  padding-right: 1em;
+}
+
+.piptable td {
+  padding-right: 0.75em;
+}
+
+.writein {
+  border-bottom: 1px solid black;
+  width: 3em;
+  margin-right: 1em;
+}
+
+.lineheader {
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+}
+  </style>
+</head>
+<body style="margin: 0in; padding: 0in;">
+
+<!-- This is a grid of 9 3.5"x2.5" cards that contain all the main gameplay state fields for a Daggerheart character.
+     All 9 cards are the same, with an eye toward reuse. This layout does not assume any pre-cut/perforated cards; it's
+     designed for a single letter-sized sheet of light cardstock or paper. The cards need to be cut apart with a knife or
+     scissors once printed. -->
+
+<div class="page">
+  <div style="display: flex;">
+
+    <!-- yes, unforuntately this one block of HTML is copied 9 times. This is because there's no way
+         to replicate/reference/#include content in HTML without external compilation or JavaScript,
+         which we don't want to use to keep this as static content.
+    -->
+    <div class="card topcard leftcard">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card topcard">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card topcard">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+  <div style="display: flex;">
+
+    <div class="card leftcard">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+  <div style="display: flex;">
+    <div class="card leftcard">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <table class="piptable" style="width: 90%; font-size: 1.0em;"><tbody>
+          <tr>
+            <td>HP</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Armor</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Stress</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td>
+            <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+          </tr>
+          <tr>
+            <td>Hope</td>
+            <td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td class="pip"></td><td colspan="6"></td>
+          </tr>
+        </tbody></table>
+
+        <div style="display: flex;">
+          <div class="lineheader">Major/Severe</div>
+          <div style="text-align: left; display: flex;"><div class="writein"></div><div> / </div><div class="writein" style="margin-left: 1em;"></div></div>
+        </div>
+        <div class="lineheader">
+          <div>Gold</div>
+          <div style="display: flex; font-size: 0.75em; padding-left: 0.5em;">
+            <div style="padding-right: 0.5em;">Handfuls:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Bags:</div><div class="writein"></div>
+            <div style="padding-right: 0.5em;">Chests:</div><div class="writein"></div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+</body></html>

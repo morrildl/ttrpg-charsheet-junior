@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+  <!-- © 2025, Dan Morrill. This work is licensed under the terms of CC-BY 4.0. -->
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+@page {
+  size: letter;
+  margin: 0in;
+  padding: 0in;
+}
+
+.page {
+  height: 11in;
+  width: 8.5in;
+  margin: 0px;
+  padding: 0px;
+
+  font-family: "Cinzel", system-ui;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  font-size: 0.65em;
+}
+
+/* The page margins are set for 0.17" on each edge, because this is what my particular printer
+ * supports; I assume this is typical for home printers, but YMMV.
+ *
+ * Note that the D&D 5e character sheet in this project is a portrait layout, where this one is
+ * landscape. Because of that, and because CSS is kind of obnoxious, we have to use padding here
+ * instead of margin; otherwise the browser renders it incorrectly when printing, unless a border
+ * is present. (Don't go there.)
+ *
+ * This could be converted to e.g. A5 panels printed on A4, or to a printer with different margins,
+ * by just updating these constants. The content within the panels should reflow, as the blocks are
+ * all sized proportionally.
+ */
+.panel {
+  width:         8.16in;
+  height:        4.87in;
+  margin:        0in;
+  padding-left:  0.17in;
+  padding-right: 0.17in;
+}
+ 
+.even-top {
+  padding-top: 0.45in;
+}
+
+.even-bottom {
+  padding-top: 0.62in;
+}
+
+.odd-top {
+  padding-top:    0.17in;
+  padding-bottom: 0.62in;
+}
+
+.odd-bottom {
+  padding-bottom: 0.45in;
+}
+
+.box {
+  height: 100%;
+  aspect-ratio: 1;
+  background-size: calc(95%) calc(100% - 1.625em);
+  background-position-y: 1.4em;
+  background-repeat: no-repeat;
+  margin-bottom: 0.25em;
+}
+
+.prof {
+  background-image: url('assets/prof.svg');
+}
+
+.shield {
+  background-image: url('assets/shield.svg');
+}
+
+.boot {
+  background-image: url('assets/boot.svg');
+}
+
+.heart {
+  background-image: url('assets/heart.svg');
+}
+
+.heart-dashed {
+  background-image: url('assets/heart-dashed.svg');
+}
+
+.initiative {
+  background-image: url('assets/initiative.svg');
+}
+
+.trait {
+  background-image: url('assets/trait.svg');
+}
+
+.open {
+  background-repeat: no-repeat;
+  background-image: url('assets/border-tl.svg'), url('assets/border-tr.svg'), url('assets/border-bl.svg'), url('assets/border-br.svg');
+  background-position-x: 2%, 100%, 2%, 100%;
+  background-position-y: 0.7em, 0.7em, 100%, 100%;
+  background-size: 12.5%;
+}
+
+.open div:first-child {
+  font-size: 1.4em;
+}
+
+.bordered {
+  background-repeat: no-repeat;
+  background-image: url('assets/border-tl.svg'), url('assets/border-tr.svg'), url('assets/border-bl.svg'), url('assets/border-br.svg');
+  background-position-x: 2%, 100%, 2%, 100%;
+  background-position-y: 0.7em, 0.7em, 100%, 100%;
+  background-size: 12.5%;
+}
+
+.pip {
+  background-image: url('assets/disc.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 1.1em;
+  aspect-ratio: 1;
+}
+
+.outline {
+  background-image: url('assets/pipbox-outline.svg');
+}
+
+.pipbox {
+  background-image: url('assets/pip.svg');
+}
+
+.top-row {
+  height: 50%;
+  display: flex;
+  text-align: left;
+}
+
+.top-row .row-item {
+  margin-right: 1em;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding-left: 0.5em;
+  height: calc(100% - 0.5em);
+}
+
+.levelup {
+  text-align: right;
+  font-size: 1.0em;
+  padding-right: 1em;
+
+  border: 0px solid black;
+}
+
+.levelup td {
+  padding-right: 0.75em;
+}
+
+.levelup th {
+  text-align: left;
+}
+
+.writein {
+  border-bottom: 1px solid black;
+  width: 3em;
+  margin-right: 1em;
+}
+  </style>
+</head>
+<body style="margin: 0in; padding: 0in;">
+
+<!-- US-Letter page 1 as far as the printer is concerned: front side of US-Letter "parent" sheet -->
+<div class="page">
+
+  <div class="panel even-top"><!-- Half-Letter Sheet 1, Page 1: This is the front side of the first of the 2 character sheets -->
+    <div style="width: 100%; height: 15%;"><div style="padding-bottom: 1.25em; width: 100%; height: 100%;">
+      <div class="top-row">
+        <div style="width: 34%;"><div class="row-item">Name</div></div>
+        <div style="width: 33%;"><div class="row-item">Ancestry</div></div>
+        <div style="width: 33%;"><div class="row-item">Class</div></div>
+      </div>
+      <div class="top-row">
+        <div style="width: 34%;"><div class="row-item">Player</div></div>
+        <div style="width: 33%;"><div class="row-item">Community</div></div>
+        <div style="width: 33%;"><div class="row-item">Subclass</div></div>
+      </div>
+    </div></div>
+
+    <div style="height: 30%; display: flex;">
+      <div style="height: 100%;">
+        <div style="height: 50%; display: flex;">
+          <div class="box prof">Level</div>
+          <div class="box initiative">Proficiency</div>
+          <div class="box heart">Max HP</div>
+          <div class="box heart-dashed">Max Stress</div>
+          <div class="box boot">Evasion</div>
+          <div class="box shield">Max Armor</div>
+        </div>
+        <div style="height: 50%; display: flex;">
+          <div class="box trait">AGI</div>
+          <div class="box trait">STR</div>
+          <div class="box trait">FIN</div>
+          <div class="box trait">INS</div>
+          <div class="box trait">PRE</div>
+          <div class="box trait">KNO</div>
+        </div>
+      </div>
+
+      <div style="height: 100%; width:100%;" class="open">
+        <div>Experiences</div>
+      </div>
+    </div>
+
+    <div style="height: 55%; display: flex;">
+      <div style="width: 45%;">
+        <div style="height: 65%; width: 100%;" class="open">
+          <div>Class Features</div>
+        </div>
+        <div style="height: 35%; width: 100%;" class="open">
+          <div>Other Features</div>
+        </div>
+      </div>
+      <div style="height: 100%; width:55%;" class="open">
+        <div>Equipment</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel even-bottom"><!-- Half-Letter Sheet 2, Page 1: This is the front side of the **second** of the 2 character sheets -->
+    <div style="width: 100%; height: 15%;"><div style="padding-bottom: 1.25em; width: 100%; height: 100%;">
+      <div class="top-row">
+        <div style="width: 34%;"><div class="row-item">Name</div></div>
+        <div style="width: 33%;"><div class="row-item">Ancestry</div></div>
+        <div style="width: 33%;"><div class="row-item">Class</div></div>
+      </div>
+      <div class="top-row">
+        <div style="width: 34%;"><div class="row-item">Player</div></div>
+        <div style="width: 33%;"><div class="row-item">Community</div></div>
+        <div style="width: 33%;"><div class="row-item">Subclass</div></div>
+      </div>
+    </div></div>
+
+    <div style="height: 30%; display: flex;">
+      <div style="height: 100%;">
+        <div style="height: 50%; display: flex;">
+          <div class="box prof">Level</div>
+          <div class="box initiative">Proficiency</div>
+          <div class="box heart">Max HP</div>
+          <div class="box heart-dashed">Max Stress</div>
+          <div class="box boot">Evasion</div>
+          <div class="box shield">Max Armor</div>
+        </div>
+        <div style="height: 50%; display: flex;">
+          <div class="box trait">AGI</div>
+          <div class="box trait">STR</div>
+          <div class="box trait">FIN</div>
+          <div class="box trait">INS</div>
+          <div class="box trait">PRE</div>
+          <div class="box trait">KNO</div>
+        </div>
+      </div>
+
+      <div style="height: 100%; width:100%;" class="open">
+        <div>Experiences</div>
+      </div>
+    </div>
+
+    <div style="height: 55%; display: flex;">
+      <div style="width: 45%;">
+        <div style="height: 60%; width: 100%;" class="open">
+          <div>Class Features</div>
+        </div>
+        <div style="height: 40%; width: 100%;" class="open">
+          <div>Other Features</div>
+        </div>
+      </div>
+      <div style="height: 100%; width:55%;" class="open">
+        <div>Equipment</div>
+      </div>
+    </div>
+  </div>
+</div><!-- End of US-Letter parent page 1 -->
+
+<!-- US-Letter page 2 as far as the document is concerned; intended to be printed double-sided, so
+     back side of the first US-Letter sheet as far as the printer is concerned -->
+<div class="page">
+  <div class="panel odd-top" style="display: flex;"><!-- Half-Letter Sheet 2, Page 2: This is the back side of the **first** of the 2 character sheets -->
+    <div style="height: 100%; width: 45%;">
+      <div style="width: 100%; height: 100%;" class="bordered">
+        <div style="font-size: 1.4em;">Level-Up Record</div>
+        <div style="font-size: 1.4em; padding-top: 1em;">When reaching a new Tier...</div>
+        <table class="levelup" style="padding-left: 2em;">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Level 2</th>
+              <th>Level 5</th>
+              <th>Level 8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Unmark any marked Traits</td><td>N/A</td></td><td>Free!</td><td>Free!</td></tr>
+            <tr><td>Gain a new Experience at +2</td><td>Free!</td><td>Free!</td><td>Free!</td></tr>
+            <tr><td>Add +1 to Proficiency</td><td>Free!</td><td>Free!</td><td>Free!</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size: 1.4em; padding-top: 1em;">For each Level...</div>
+        <div style="font-size: 0.8em;">Spend 2 points per level on bubbles below.</div>
+        <div style="font-size: 0.8em;">Round bubbles cost 1 point; square bubbles cost 2.</div>
+        <table class="levelup">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tier 2</th>
+              <th>Tier 3</th>
+              <th>Tier 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>add +1 to damage thresholds</td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+            </tr>
+            <tr>
+              <td>choose a new Domain card</td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+            </tr>
+            <tr>
+              <td>add +1 & mark 2 unmarked traits</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>gain 1 HP slot (+1 max HP)</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>gain 1 Stress slot (+1 max Stress)</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to Evasion</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to 2 Experiences</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>choose another Domain card</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>take next Subclass upgrade card<super>*</super></td>
+              <td><div style="display: flex;">N/A</div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to Proficiency</td>
+              <td><div style="display: flex;"><div>N/A</div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+            </tr>
+            <tr>
+              <td>multiclass into a new class<super>*</super></td>
+              <td><div style="display: flex;"><div>N/A</div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 0.8em; padding: 1.5em;">* - a character may only ever have a total of two choices across all tiers, of any combination of Upgrade Subclass and Multiclass</div>
+      </div>
+    </div>
+    <div style="height: 100%; width: 55%;">
+      <div style="width: 100%; height: 60%;" class="open"><div>Additional Equipment & Inventory</div></div>
+      <div style="width: 100%; height: 40%;" class="bordered">
+        <div style="font-size: 1.4em; padding-bottom: 0.5em;">Stat Tracker</div>
+        <table class="levelup" style="width: 90%; font-size: 1.2em;">
+          <tbody>
+            <tr>
+              <td>HP</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Armor</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Stress</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Hope</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td colspan="6"></td>
+            </tr>
+            <tr>
+              <td>Dmg. Thresholds</td>
+              <td colspan="12"><div style="text-align: left; display: flex;"><div class="writein"></div> / <div class="writein" style="margin-left: 1em;"></div></div></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top;">Gold</td><td colspan="12">
+                <table style="font-size: 0.8em;">
+                  <tr>
+                    <td>Handfuls</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                  <tr>
+                    <td>Bags</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                  <tr>
+                    <td>Chests</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel odd-bottom" style="display: flex;"><!-- Half-Letter Sheet 1, Page 2: This is the back side of the **second** of the 2 character sheets -->
+    <div style="height: 100%; width: 45%;">
+      <div style="width: 100%; height: 100%;" class="bordered">
+        <div style="font-size: 1.4em;">Level-Up Record</div>
+        <div style="font-size: 1.4em; padding-top: 1em;">When reaching a new Tier...</div>
+        <table class="levelup" style="padding-left: 2em;">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Level 2</th>
+              <th>Level 5</th>
+              <th>Level 8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Unmark any marked Traits</td><td>N/A</td></td><td>Free!</td><td>Free!</td></tr>
+            <tr><td>Gain a new Experience at +2</td><td>Free!</td><td>Free!</td><td>Free!</td></tr>
+            <tr><td>Add +1 to Proficiency</td><td>Free!</td><td>Free!</td><td>Free!</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size: 1.4em; padding-top: 1em;">For each Level...</div>
+        <div style="font-size: 0.8em;">Spend 2 points per level on bubbles below.</div>
+        <div style="font-size: 0.8em;">Round bubbles cost 1 point; square bubbles cost 2.</div>
+        <table class="levelup">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tier 2</th>
+              <th>Tier 3</th>
+              <th>Tier 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>add +1 to damage thresholds</td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+            </tr>
+            <tr>
+              <td>choose a new Domain card</td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+              <td><div style="display: flex;">Free!</div></td>
+            </tr>
+            <tr>
+              <td>add +1 & mark 2 unmarked traits</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>gain 1 HP slot (+1 max HP)</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>gain 1 Stress slot (+1 max Stress)</td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to Evasion</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to 2 Experiences</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>choose another Domain card</td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>take next Subclass upgrade card<super>*</super></td>
+              <td><div style="display: flex;">N/A</div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+              <td><div style="display: flex;"><div class="pip"></div></div></td>
+            </tr>
+            <tr>
+              <td>add +1 to Proficiency</td>
+              <td><div style="display: flex;"><div>N/A</div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+            </tr>
+            <tr>
+              <td>multiclass into a new class<super>*</super></td>
+              <td><div style="display: flex;"><div>N/A</div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+              <td><div style="display: flex;"><div class="pip pipbox"></div><div class="pip pipbox"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 0.8em; padding: 1.5em;">* - a character may only ever have a total of two choices across all tiers, of any combination of Upgrade Subclass and Multiclass</div>
+      </div>
+    </div>
+    <div style="height: 100%; width: 55%;">
+      <div style="width: 100%; height: 60%;" class="open"><div>Additional Equipment & Inventory</div></div>
+      <div style="width: 100%; height: 40%;" class="bordered">
+        <div style="font-size: 1.4em; padding-bottom: 0.5em;">Stat Tracker</div>
+        <table class="levelup" style="width: 90%; font-size: 1.2em;">
+          <tbody>
+            <tr>
+              <td>HP</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Armor</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Stress</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td><td class="pip outline"></td>
+            </tr>
+            <tr>
+              <td>Hope</td>
+              <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+              <td colspan="6"></td>
+            </tr>
+            <tr>
+              <td>Dmg. Thresholds</td>
+              <td colspan="12"><div style="text-align: left; display: flex;"><div class="writein"></div> / <div class="writein" style="margin-left: 1em;"></div></div></td>
+            </tr>
+            <tr>
+              <td style="vertical-align: top;">Gold</td><td colspan="12">
+                <table style="font-size: 0.8em;">
+                  <tr>
+                    <td>Handfuls</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                  <tr>
+                    <td>Bags</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                  <tr>
+                    <td>Chests</td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                    <td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td><td class="pip pipbox"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>
