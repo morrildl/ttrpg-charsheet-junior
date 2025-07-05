@@ -24,8 +24,7 @@ To use:
 3. Print the HTML page (ctrl-P)
 
 Alternatively, if you don't want to make any tweaks, just download and print
-[charsheet.pdf](charsheet.pdf).
-
+[charsheet.pdf](pdf/charsheet.pdf).
 
 ## 3D Models for Plates
 
